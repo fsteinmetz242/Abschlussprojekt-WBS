@@ -1,0 +1,109 @@
+@import "tailwindcss";
+
+@plugin "daisyui" {
+  themes: light --default;
+}
+@plugin "daisyui/theme" {
+  name: "light";
+  default: true;
+  --color-primary: #000000;
+  --color-primary-content: #fff;
+  --color-secondary: #1D3349;
+  --color-secondary-content: #fff;
+  --color-base: oklch(20% 0.05 240);
+  --color-base-content: #000;
+  --color-base-background: #fff;
+}
+@plugin "daisyui/theme" {
+  name: "dark";
+  default: true;
+  --color-primary: #000;
+  --color-primary-content: #fff;
+  --color-secondary: #1D3349;
+  --color-secondary-content: #fff;
+  --color-base: oklch(20% 0.05 240);
+  --color-base-content: #fff;
+  --color-base-background: #000;
+}
+
+/* STANDARD Schriftgröße für alle <p> Tags festlegen: */
+@layer base {
+  p {
+    font-size: 1.25rem; /* text-xl */
+    line-height: 1.75rem;
+  }
+  label,
+  legend {
+    font-size: 1rem; /* text-xl */
+  }
+  h1 {
+    font-size: 3rem;
+    line-height: 4rem;
+    font-weight: 800;
+  }
+
+  h2 {
+    font-size: 2.5rem;
+    line-height: 3rem;
+    font-weight: 500;
+    font-family: "Gill Sans", "Gill Sans MT", "Calibri", "Trebuchet MS",
+      sans-serif;
+  }
+  h3 {
+    font-weight: 700;
+    font-size: 1.5rem;
+    line-height: 1.8rem;
+    padding-bottom: 0.6em;
+  }
+}
+
+@import "./styles/index.css";
+
+/* BACKGROUND VERLAUF FÜR THEME "Dark" und "Light" ################### */
+
+html[data-theme="light"] .page {
+  background: #faf8f8;
+}
+
+html[data-theme="dark"] .page {
+}
+
+html[data-theme="dark"] .aboutInfoBox {
+  background: #000;
+}
+
+header a,
+summary {
+  font-size: 1.4em;
+}
+
+header li {
+  padding: 0 10px;
+}
+
+@media only screen and (max-width: 1290px) {
+  h1 {
+    font-size: 2.5rem; /* statt 2% */
+    line-height: 3rem;
+  }
+}
+
+/* Custom scrollbar styles for mobile menu */
+@layer utilities {
+  .scrollbar-thin::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  .scrollbar-thumb-base-300::-webkit-scrollbar-thumb {
+    background: hsl(var(--bc) / 0.2);
+    border-radius: 3px;
+  }
+
+  .scrollbar-thumb-base-300::-webkit-scrollbar-thumb:hover {
+    background: hsl(var(--bc) / 0.3);
+  }
+}
